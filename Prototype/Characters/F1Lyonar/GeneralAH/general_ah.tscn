@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1if78l5r1i3"]
+
+[ext_resource type="SpriteFrames" uid="uid://lej16sledx8r" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f1_general.tres" id="1_n0xwj"]
+[ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_s2w5r"]
+
+[node name="General AH" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_n0xwj")
+animation = &"breathing"
+frame_progress = 0.965736
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_s2w5r")]

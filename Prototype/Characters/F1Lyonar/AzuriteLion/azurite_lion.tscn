@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cktu3jq6oi28k"]
+
+[ext_resource type="SpriteFrames" uid="uid://dr13qka280ouf" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f1_azuritelion.tres" id="1_41ecm"]
+[ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_kmi67"]
+
+[node name="AzuriteLion" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_41ecm")
+animation = &"idle"
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_kmi67")]

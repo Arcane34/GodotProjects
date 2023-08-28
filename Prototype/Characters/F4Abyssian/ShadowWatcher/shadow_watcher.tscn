@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjivian2e6mcx"]
+
+[ext_resource type="SpriteFrames" uid="uid://b25jd6m6wj2lt" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_engulfingshadow.tres" id="1_18sx0"]
+[ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_njsb6"]
+
+[node name="ShadowWatcher" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_18sx0")
+animation = &"attack"
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_njsb6")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://detd5rs4dbp6m"]
+
+[ext_resource type="SpriteFrames" uid="uid://boy44ej37t6ur" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_general.tres" id="1_1us41"]
+[ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_4jj5k"]
+
+[node name="General LB F4" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_1us41")
+animation = &"attack"
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_4jj5k")]
