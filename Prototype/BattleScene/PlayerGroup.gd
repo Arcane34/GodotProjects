@@ -4,7 +4,12 @@ extends Node2D
 @onready var start = [PI/3, PI/3]
 @onready var offset = [30, 50]
 @onready var switch = false
-	
+
+func _ready():
+	for i in characters.size():
+		characters[i].get_children()[1].disabled = true
+		characters[i].get_children()[1].visible = true
+		
 
 func _process(delta):
 	for i in characters.size():

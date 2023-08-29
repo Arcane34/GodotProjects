@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ke8t4yrsutxl"]
+[gd_scene load_steps=4 format=3 uid="uid://ke8t4yrsutxl"]
 
 [ext_resource type="SpriteFrames" uid="uid://3bpqc7jejnad" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f1_invincibuddy.tres" id="1_qb3mm"]
 [ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_h3qgy"]
+[ext_resource type="PackedScene" uid="uid://by38mi1fkdcfk" path="res://components/hitbox_component.tscn" id="3_w1q8d"]
 
 [node name="Indominus" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_qb3mm")
 animation = &"attack"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_h3qgy")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_w1q8d")]

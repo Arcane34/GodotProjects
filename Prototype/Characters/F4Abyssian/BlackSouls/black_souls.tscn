@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://chviajs5xsof7"]
+[gd_scene load_steps=4 format=3 uid="uid://chviajs5xsof7"]
 
 [ext_resource type="SpriteFrames" uid="uid://ceb47o6yqgfg5" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_blacksolus.tres" id="1_xy1nt"]
 [ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_dusku"]
+[ext_resource type="PackedScene" uid="uid://by38mi1fkdcfk" path="res://components/hitbox_component.tscn" id="3_uhyhj"]
 
 [node name="BlackSouls" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_xy1nt")
 animation = &"attack"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_dusku")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_uhyhj")]
