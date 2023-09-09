@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpy20ebtc1ose"]
+
+[ext_resource type="Script" path="res://FlashcardEditor/flashcard.gd" id="1_nchrx"]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(360, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nchrx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Front" type="TextEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Type front of card here...."
+
+[node name="Back" type="TextEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Type back of card here..."
+
+[node name="Delete" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Minussign" type="Label" parent="HBoxContainer/Delete"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 20
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

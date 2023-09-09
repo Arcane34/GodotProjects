@@ -1,31 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://vrl02xwp5rhj"]
+[gd_scene load_steps=3 format=3 uid="uid://vrl02xwp5rhj"]
 
 [ext_resource type="Script" path="res://FlashcardEditor/save_card.gd" id="1_rog6v"]
+[ext_resource type="Texture2D" uid="uid://8en4ceiir6u5" path="res://assets/save.png" id="2_hcrts"]
 
 [node name="FlashEditor" type="Node2D"]
 script = ExtResource("1_rog6v")
 
-[node name="CardFront" type="TextEdit" parent="."]
-offset_left = 25.0
-offset_top = 25.0
+[node name="Save" type="Button" parent="."]
+offset_left = 375.0
+offset_right = 400.0
+offset_bottom = 25.0
+icon = ExtResource("2_hcrts")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Add" type="Button" parent="."]
+offset_left = 350.0
 offset_right = 375.0
-offset_bottom = 85.0
-theme_override_font_sizes/font_size = 7
-placeholder_text = "Type Front here"
+offset_bottom = 25.0
 
-[node name="CardBack" type="TextEdit" parent="."]
-offset_left = 25.0
-offset_top = 95.0
-offset_right = 375.0
-offset_bottom = 155.0
-theme_override_font_sizes/font_size = 7
-placeholder_text = "Type Back here"
+[node name="Plussign" type="Label" parent="Add"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 25.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 20
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 180.0
-offset_top = 180.0
-offset_right = 282.0
-offset_bottom = 211.0
-text = "Save Button"
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 20.0
+offset_top = 35.0
+offset_right = 380.0
+offset_bottom = 215.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="CardContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Save" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
