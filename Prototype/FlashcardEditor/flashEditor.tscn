@@ -38,5 +38,12 @@ offset_bottom = 215.0
 [node name="CardContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="Save" to="." method="_on_button_pressed"]
+[node name="mainMenu" type="Button" parent="."]
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 7
+text = "Back"
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]

@@ -30,12 +30,19 @@ func load_data():
 			cards.add_child(instance)
 	
 	file.close()
-	print(g_data)
-	print("lol")
+	
+
+	
 
 
+func _on_add_pressed():
+	var scene = load("res://FlashcardEditor/flashcard.tscn")
+	var instance = scene.instantiate()
+	cards.add_child(instance)
+	
 
-func _on_button_pressed():
+
+func _on_save_pressed():
 	g_data = [[],[]]
 	var cardObjects = cards.get_children()
 	for i in len(cardObjects):
@@ -45,8 +52,5 @@ func _on_button_pressed():
 	save_data()
 
 
-func _on_add_pressed():
-	var scene = load("res://FlashcardEditor/flashcard.tscn")
-	var instance = scene.instantiate()
-	cards.add_child(instance)
-	
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/mainMenu.tscn")
