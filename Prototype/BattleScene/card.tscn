@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnmyj5ff8to3x"]
+
+[ext_resource type="SpriteFrames" uid="uid://eigtt8pgxe1g" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_abomination.tres" id="1_gwtuw"]
+
+[node name="Card" type="Button"]
+custom_minimum_size = Vector2(40, 60)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_gwtuw")
+animation = &"attack"
+offset = Vector2(20, 20)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 2

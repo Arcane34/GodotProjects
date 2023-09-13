@@ -118,7 +118,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5es1w")
 }],
 "loop": true,
-"name": &"action",
+"name": &"active",
 "speed": 9.0
 }, {
 "frames": [{

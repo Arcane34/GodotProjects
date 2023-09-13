@@ -32,8 +32,9 @@ func _process(delta):
 			start[1] += 0.05
 		else:
 			start = [PI/3, PI/3]
-			characters = [characters[2],characters[0],characters[1]]
+			characters.insert(0,characters.pop_back())
 			switch = false
+	print(characters[0].skills)
 
 func _on_end_turn_pressed():
 	switch = true

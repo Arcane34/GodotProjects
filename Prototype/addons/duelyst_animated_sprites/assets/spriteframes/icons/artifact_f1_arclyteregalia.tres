@@ -221,6 +221,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_ejvqn")
 }],
 "loop": true,
-"name": &"default",
+"name": &"arclyteregalia",
 "speed": 9.0
 }]

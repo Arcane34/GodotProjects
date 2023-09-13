@@ -41,7 +41,7 @@ func _process(delta):
 			else:
 				rotate = 0
 				start = [4*PI/3, 4*PI/3]
-				characters = [characters[2],characters[0],characters[1]]
+				characters.insert(0,characters.pop_back())
 		if rotate < 0:
 			if start[0] > (2*PI/3):
 				start[0] -= 0.05
@@ -49,7 +49,8 @@ func _process(delta):
 			else:
 				rotate = 0
 				start = [4*PI/3, 4*PI/3]
-				characters = [characters[1],characters[2],characters[0]]
+				characters.append(characters.pop_front())
+				
 			
 
 

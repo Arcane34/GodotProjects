@@ -5,7 +5,6 @@ var g_data = []
 @onready var cards = $ScrollContainer/CardContainer
 
 
-
 func _ready():
 	load_data()
 

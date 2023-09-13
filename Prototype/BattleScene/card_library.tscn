@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bavqqfoyai0qo"]
 
-[ext_resource type="SpriteFrames" uid="uid://ck0kvy8uvolpm" path="res://addons/duelyst_animated_sprites/assets/spriteframes/icons/icon_f1_blessing.tres" id="1_fydki"]
+[ext_resource type="Script" path="res://BattleScene/AllCards.gd" id="1_c0qkx"]
 
 [node name="CardLibrary" type="Control"]
 layout_mode = 3
@@ -10,31 +10,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AllCards" type="GridContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Blessing" type="Button" parent="AllCards"]
-custom_minimum_size = Vector2(40, 60)
-layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AllCards/Blessing"]
-sprite_frames = ExtResource("1_fydki")
-animation = &"active"
-offset = Vector2(20, 20)
-
-[node name="Label" type="Label" parent="AllCards/Blessing"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 5
-text = "Blessing"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="Hand" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 225.0
+
+[node name="AllCards" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 9
+script = ExtResource("1_c0qkx")

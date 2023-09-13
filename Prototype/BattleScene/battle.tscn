@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://l4buaqes7krt"]
+[gd_scene load_steps=11 format=3 uid="uid://l4buaqes7krt"]
 
 [ext_resource type="Script" path="res://BattleScene/PlayerGroup.gd" id="3_qju2o"]
 [ext_resource type="PackedScene" uid="uid://cf1if78l5r1i3" path="res://Characters/F1Lyonar/GeneralAH/general_ah.tscn" id="6_10hjf"]
@@ -8,8 +8,6 @@
 [ext_resource type="FontFile" uid="uid://cd6blhr1ym5f0" path="res://Fonts/COMIC.TTF" id="7_pk4jq"]
 [ext_resource type="SpriteFrames" uid="uid://djij27wrrqy5p" path="res://addons/duelyst_animated_sprites/assets/spriteframes/icons/artifact_f1_arclyteregalia.tres" id="7_rllnf"]
 [ext_resource type="PackedScene" uid="uid://detd5rs4dbp6m" path="res://Characters/F4Abyssian/GeneralLB/general_lb_f_4.tscn" id="7_sgma5"]
-[ext_resource type="PackedScene" uid="uid://cktu3jq6oi28k" path="res://Characters/F1Lyonar/AzuriteLion/azurite_lion.tscn" id="7_tgbih"]
-[ext_resource type="PackedScene" uid="uid://ke8t4yrsutxl" path="res://Characters/F1Lyonar/Indominus/indominus.tscn" id="8_tgkj4"]
 [ext_resource type="PackedScene" uid="uid://cjivian2e6mcx" path="res://Characters/F4Abyssian/ShadowWatcher/shadow_watcher.tscn" id="8_ujsqt"]
 [ext_resource type="Script" path="res://BattleScene/EnemyGroup.gd" id="8_vogux"]
 
@@ -27,12 +25,6 @@ script = ExtResource("3_qju2o")
 [node name="General AH" parent="PlayerGroup" instance=ExtResource("6_10hjf")]
 position = Vector2(116, 54)
 
-[node name="AzuriteLion" parent="PlayerGroup" instance=ExtResource("7_tgbih")]
-position = Vector2(70, 121)
-
-[node name="Indominus" parent="PlayerGroup" instance=ExtResource("8_tgkj4")]
-position = Vector2(34, 71)
-
 [node name="EnemyGroup" type="Node2D" parent="."]
 script = ExtResource("8_vogux")
 
@@ -48,9 +40,9 @@ animation = &"idle"
 position = Vector2(347, 40)
 animation = &"idle"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Options" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
 custom_minimum_size = Vector2(400, 40)
 anchors_preset = 2
 anchor_top = 1.0
@@ -61,23 +53,24 @@ grow_vertical = 0
 alignment = 1
 script = ExtResource("6_48v8q")
 
-[node name="Spell" type="Button" parent="CanvasLayer/HBoxContainer"]
+[node name="Spell" type="Button" parent="Options/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HBoxContainer/Spell"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Options/HBoxContainer/Spell"]
 position = Vector2(25, 25)
 sprite_frames = ExtResource("7_rllnf")
+animation = &"active"
 
-[node name="Attack" type="Button" parent="CanvasLayer/HBoxContainer"]
+[node name="Attack" type="Button" parent="Options/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="CanvasLayer/HBoxContainer/Attack"]
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Options/HBoxContainer/Attack"]
 position = Vector2(25, 25)
 sprite_frames = ExtResource("6_quhqv")
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Attack"]
+[node name="Label" type="Label" parent="Options/HBoxContainer/Attack"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 49.0
@@ -87,14 +80,14 @@ theme_override_fonts/font = ExtResource("7_pk4jq")
 theme_override_font_sizes/font_size = 7
 text = "Circle of Life"
 
-[node name="End Turn" type="Button" parent="CanvasLayer/HBoxContainer"]
+[node name="End Turn" type="Button" parent="Options/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HBoxContainer/End Turn"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Options/HBoxContainer/End Turn"]
 position = Vector2(25, 25)
 sprite_frames = ExtResource("7_rllnf")
 animation = &"active"
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Attack" to="EnemyGroup" method="_on_attack_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/Attack" to="EnemyGroup" method="_on_attack_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]
