@@ -80,14 +80,15 @@ theme_override_fonts/font = ExtResource("7_pk4jq")
 theme_override_font_sizes/font_size = 7
 text = "Circle of Life"
 
-[node name="End Turn" type="Button" parent="Options/HBoxContainer"]
+[node name="End Turn" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Options/HBoxContainer/End Turn"]
-position = Vector2(25, 25)
-sprite_frames = ExtResource("7_rllnf")
-animation = &"active"
+offset_left = 322.0
+offset_top = 180.0
+offset_right = 372.0
+offset_bottom = 199.0
+theme_override_font_sizes/font_size = 7
+text = "End Turn"
 
 [connection signal="pressed" from="Options/HBoxContainer/Attack" to="EnemyGroup" method="_on_attack_pressed"]
-[connection signal="pressed" from="Options/HBoxContainer/End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]
+[connection signal="pressed" from="End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]

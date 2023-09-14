@@ -1,6 +1,9 @@
 extends GridContainer
 
+@onready var hand = $"../../Hand"
+
 func _ready():
+	
 	var scene = load("res://BattleScene/card.tscn")
 	
 	var dir = DirAccess.open("res://addons/duelyst_animated_sprites/assets/spriteframes/icons/")
@@ -15,12 +18,13 @@ func _ready():
 		
 
 
-			
+	
 		var fileSplit = file_name.split("_")
 		var abName = fileSplit[fileSplit.size()-1].split(".")[0]
 		
 		
 		instance.get_node("Label").text = abName
+		#instance.connect("pressed", _on_card_pressed.bind(instance.duplicate()))
 		self.add_child(instance)
 		
 		file_name = dir.get_next()
@@ -28,7 +32,13 @@ func _ready():
 		
 		counter += 1
 	print(counter)
-		
+	
+	
+	
+#func _on_card_pressed(button: Button):
+#	hand.add_child(button)
+	
+	
 func _process(_delta):
 	var cards = self.get_children()
 	

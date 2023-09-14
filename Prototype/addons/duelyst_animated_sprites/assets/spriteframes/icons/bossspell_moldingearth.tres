@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://h5x8fh3ejq0w"]
 
-[ext_resource type="Texture2D" uid="uid://bdlrpgkjpabf2" path="res://addons/duelyst_animated_sprites/assets/spritesheets/icons/bossspell_moldingearth.png" id="1_vr4mu"]
+[ext_resource type="Texture2D" uid="uid://v0lf6s12rfey" path="res://addons/duelyst_animated_sprites/assets/spritesheets/icons/bossspell_moldingearth.png" id="1_vr4mu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnlqm"]
 atlas = ExtResource("1_vr4mu")

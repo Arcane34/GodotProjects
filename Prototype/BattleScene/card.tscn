@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnmyj5ff8to3x"]
 
-[ext_resource type="SpriteFrames" uid="uid://eigtt8pgxe1g" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_abomination.tres" id="1_gwtuw"]
+[ext_resource type="SpriteFrames" uid="uid://cyb7cfctghj26" path="res://addons/duelyst_animated_sprites/assets/spriteframes/icons/icon_f1_increasingdominance.tres" id="1_tpdsm"]
 
 [node name="Card" type="Button"]
 custom_minimum_size = Vector2(40, 60)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_gwtuw")
-animation = &"attack"
+sprite_frames = ExtResource("1_tpdsm")
+animation = &"active"
 offset = Vector2(20, 20)
 
 [node name="Label" type="Label" parent="."]
