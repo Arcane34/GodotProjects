@@ -1,3 +1,3 @@
 extends Node2D
 
-var skills = ["circleoflife"]
+var skills = [1,1,2]

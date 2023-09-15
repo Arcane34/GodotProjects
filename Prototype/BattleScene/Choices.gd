@@ -5,10 +5,11 @@ extends HBoxContainer
 var skillList = []
 
 
+func _ready():
+	skillList = playerGroup.get_child(0).skills
 	
 
 func _process(delta):
-	skillList = playerGroup.get_child(0).skills
 	
 	for i in buttons.size():
 		if i == 0:

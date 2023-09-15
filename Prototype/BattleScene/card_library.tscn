@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bavqqfoyai0qo"]
+[gd_scene load_steps=2 format=3 uid="uid://bavqqfoyai0qo"]
 
 [ext_resource type="Script" path="res://BattleScene/card_library.gd" id="1_bwelr"]
-[ext_resource type="Script" path="res://BattleScene/AllCards.gd" id="1_c0qkx"]
 
 [node name="CardLibrary" type="Control"]
 layout_mode = 3
@@ -17,6 +16,7 @@ layout_mode = 0
 offset_top = 40.0
 offset_right = 400.0
 offset_bottom = 100.0
+alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -29,7 +29,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 9
-script = ExtResource("1_c0qkx")
 
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
@@ -47,5 +46,5 @@ offset_bottom = 25.0
 theme_override_font_sizes/font_size = 7
 text = "Back"
 
-[connection signal="pressed" from="Save" to="ScrollContainer/AllCards" method="_on_button_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
