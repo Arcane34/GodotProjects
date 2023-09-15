@@ -3,7 +3,7 @@ extends GridContainer
 const ABILITIES_SAVE_FILE = "res://abilities/abilties.dat"
 @onready var hand = $"../../Hand"
 @onready var data = {}
-@onready var allCards = []
+
 
 func save_cards():
 	var temp_cards = []
@@ -18,7 +18,7 @@ func save_cards():
 	
 	card = Ability.new()
 	card.name = "Leech"
-	card.status = "Poison"
+	card.status = "Drain"
 	card.status_number = 10.0
 	card.path = "res://addons/duelyst_animated_sprites/assets/spriteframes/icons/artifact_f2_bloodleechmask.tres"
 	card._ready()
@@ -129,4 +129,7 @@ func _process(_delta):
 
 func _on_button_pressed():
 	save_cards()
+	print(self.get_child_count())
+	for i in self.get_child_count():
+		self.get_child(i).queue_free()
 	load_cards()

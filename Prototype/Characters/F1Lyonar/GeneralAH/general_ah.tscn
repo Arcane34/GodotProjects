@@ -1,16 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf1if78l5r1i3"]
+[gd_scene load_steps=6 format=3 uid="uid://cf1if78l5r1i3"]
 
 [ext_resource type="SpriteFrames" uid="uid://lej16sledx8r" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f1_general.tres" id="1_n0xwj"]
 [ext_resource type="Script" path="res://Characters/F1Lyonar/GeneralAH/GeneralAH.gd" id="2_0lion"]
+[ext_resource type="PackedScene" uid="uid://bu3ax6in0maf7" path="res://components/sprite_component.tscn" id="2_4huyw"]
 [ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_s2w5r"]
 [ext_resource type="PackedScene" uid="uid://by38mi1fkdcfk" path="res://components/hitbox_component.tscn" id="3_pa1ss"]
 
-[node name="General AH" type="AnimatedSprite2D"]
-sprite_frames = ExtResource("1_n0xwj")
-animation = &"breathing"
-frame_progress = 0.965736
+[node name="General AH" type="Node2D"]
 script = ExtResource("2_0lion")
 
+[node name="SpriteComponent" parent="." instance=ExtResource("2_4huyw")]
+position = Vector2(8, -34)
+sprite_frames = ExtResource("1_n0xwj")
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_s2w5r")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_pa1ss")]
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 32.0
+offset_bottom = 0.0

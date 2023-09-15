@@ -9,9 +9,9 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0, 1, 0, 1)
 
 [node name="HealthComponent" type="ProgressBar"]
-offset_left = -25.0
+offset_left = -24.0
 offset_top = 40.0
-offset_right = 25.0
+offset_right = 24.0
 offset_bottom = 45.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wxvdu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sjfcx")

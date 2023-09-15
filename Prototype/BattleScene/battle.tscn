@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://l4buaqes7krt"]
+[gd_scene load_steps=12 format=3 uid="uid://l4buaqes7krt"]
 
+[ext_resource type="Script" path="res://BattleScene/battle.gd" id="1_imbe2"]
 [ext_resource type="Script" path="res://BattleScene/PlayerGroup.gd" id="3_qju2o"]
 [ext_resource type="PackedScene" uid="uid://cf1if78l5r1i3" path="res://Characters/F1Lyonar/GeneralAH/general_ah.tscn" id="6_10hjf"]
 [ext_resource type="Script" path="res://BattleScene/Choices.gd" id="6_48v8q"]
@@ -18,27 +19,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_imbe2")
+
+[node name="Player" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 152.0
+
+[node name="General AH" parent="Player" instance=ExtResource("6_10hjf")]
+position = Vector2(40, 80)
+
+[node name="Enemies" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 48.0
+offset_right = 352.0
+offset_bottom = 168.0
+
+[node name="General LB F4" parent="Enemies" instance=ExtResource("7_sgma5")]
+position = Vector2(-8, 72)
+
+[node name="ShadowWatcher" parent="Enemies" instance=ExtResource("8_ujsqt")]
+position = Vector2(136, 72)
+
+[node name="BlackSouls" parent="Enemies" instance=ExtResource("6_nsoxc")]
+position = Vector2(64, 72)
 
 [node name="PlayerGroup" type="Node2D" parent="."]
+position = Vector2(-800, 0)
 script = ExtResource("3_qju2o")
 
-[node name="General AH" parent="PlayerGroup" instance=ExtResource("6_10hjf")]
-position = Vector2(116, 54)
-
 [node name="EnemyGroup" type="Node2D" parent="."]
+position = Vector2(-800, 0)
 script = ExtResource("8_vogux")
-
-[node name="General LB F4" parent="EnemyGroup" instance=ExtResource("7_sgma5")]
-position = Vector2(260, 94)
-animation = &"idle"
-
-[node name="BlackSouls" parent="EnemyGroup" instance=ExtResource("6_nsoxc")]
-position = Vector2(281, 27)
-animation = &"idle"
-
-[node name="ShadowWatcher" parent="EnemyGroup" instance=ExtResource("8_ujsqt")]
-position = Vector2(347, 40)
-animation = &"idle"
 
 [node name="Options" type="CanvasLayer" parent="."]
 
@@ -90,5 +106,13 @@ offset_bottom = 199.0
 theme_override_font_sizes/font_size = 7
 text = "End Turn"
 
+[node name="Main Menu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 7
+text = "Back"
+
 [connection signal="pressed" from="Options/HBoxContainer/Attack" to="EnemyGroup" method="_on_attack_pressed"]
 [connection signal="pressed" from="End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

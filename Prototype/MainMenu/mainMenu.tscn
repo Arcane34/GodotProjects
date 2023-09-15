@@ -33,10 +33,15 @@ text = "Play"
 layout_mode = 2
 text = "Flashcard Editor"
 
+[node name="Ability Library" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ability Library"
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Editor" to="." method="_on_editor_pressed"]
+[connection signal="pressed" from="VBoxContainer/Ability Library" to="." method="_on_ability_library_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

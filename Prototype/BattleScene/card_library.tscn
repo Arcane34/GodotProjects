@@ -14,8 +14,9 @@ script = ExtResource("1_bwelr")
 
 [node name="Hand" type="HBoxContainer" parent="."]
 layout_mode = 0
+offset_top = 40.0
 offset_right = 400.0
-offset_bottom = 60.0
+offset_bottom = 100.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -30,12 +31,21 @@ size_flags_vertical = 3
 columns = 9
 script = ExtResource("1_c0qkx")
 
-[node name="Button" type="Button" parent="."]
+[node name="Save" type="Button" parent="."]
 layout_mode = 0
-offset_left = 352.0
-offset_top = 70.0
-offset_right = 394.0
-offset_bottom = 101.0
-text = "load"
+offset_left = 373.0
+offset_top = 1.0
+offset_right = 398.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 7
+text = "Save"
 
-[connection signal="pressed" from="Button" to="ScrollContainer/AllCards" method="_on_button_pressed"]
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 7
+text = "Back"
+
+[connection signal="pressed" from="Save" to="ScrollContainer/AllCards" method="_on_button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

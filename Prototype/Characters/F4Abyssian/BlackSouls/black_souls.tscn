@@ -1,13 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://chviajs5xsof7"]
+[gd_scene load_steps=5 format=3 uid="uid://chviajs5xsof7"]
 
+[ext_resource type="PackedScene" uid="uid://bu3ax6in0maf7" path="res://components/sprite_component.tscn" id="1_8t8pr"]
 [ext_resource type="SpriteFrames" uid="uid://ceb47o6yqgfg5" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_blacksolus.tres" id="1_xy1nt"]
 [ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_dusku"]
 [ext_resource type="PackedScene" uid="uid://by38mi1fkdcfk" path="res://components/hitbox_component.tscn" id="3_uhyhj"]
 
-[node name="BlackSouls" type="AnimatedSprite2D"]
+[node name="BlackSouls" type="Node2D"]
+
+[node name="SpriteComponent" parent="." instance=ExtResource("1_8t8pr")]
+position = Vector2(0, -40)
 sprite_frames = ExtResource("1_xy1nt")
-animation = &"attack"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_dusku")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_uhyhj")]
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 32.0
+offset_bottom = 0.0

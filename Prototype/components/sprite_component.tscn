@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu3ax6in0maf7"]
+
+[ext_resource type="SpriteFrames" uid="uid://cngcd26xleb0d" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/boss_andromeda.tres" id="1_iaf6n"]
+[ext_resource type="Script" path="res://components/sprite_component.gd" id="2_cin2l"]
+
+[node name="SpriteComponent" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_iaf6n")
+animation = &"breathing"
+script = ExtResource("2_cin2l")

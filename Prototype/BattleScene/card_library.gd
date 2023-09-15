@@ -28,3 +28,7 @@ func _process(_delta):
 
 
 
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/mainMenu.tscn")

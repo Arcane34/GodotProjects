@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 @onready var buttons = get_children()
-@onready var playerGroup = $"../../PlayerGroup"
+@onready var playerGroup = $"../../Player"
 var skillList = []
 
 

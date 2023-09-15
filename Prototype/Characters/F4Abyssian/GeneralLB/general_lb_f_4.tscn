@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://detd5rs4dbp6m"]
+[gd_scene load_steps=5 format=3 uid="uid://detd5rs4dbp6m"]
 
 [ext_resource type="SpriteFrames" uid="uid://boy44ej37t6ur" path="res://addons/duelyst_animated_sprites/assets/spriteframes/units/f4_general.tres" id="1_1us41"]
+[ext_resource type="PackedScene" uid="uid://bu3ax6in0maf7" path="res://components/sprite_component.tscn" id="1_5rium"]
 [ext_resource type="PackedScene" uid="uid://bwxvktf6858ch" path="res://components/health_component.tscn" id="2_4jj5k"]
+[ext_resource type="PackedScene" uid="uid://by38mi1fkdcfk" path="res://components/hitbox_component.tscn" id="3_dsu4c"]
 
-[node name="General LB F4" type="AnimatedSprite2D"]
+[node name="General LB F4" type="Node2D"]
+
+[node name="SpriteComponent" parent="." instance=ExtResource("1_5rium")]
+position = Vector2(0, -24)
 sprite_frames = ExtResource("1_1us41")
-animation = &"attack"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_4jj5k")]
+offset_top = 8.0
+offset_bottom = 13.0
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_dsu4c")]
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 32.0
+offset_bottom = 0.0
