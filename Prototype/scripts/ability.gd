@@ -20,6 +20,7 @@ var label = Label.new()
 func _ready():
 	button.custom_minimum_size = Vector2(40,60)
 	
+	
 	sprite_frames = load(path)
 	sprite.offset = Vector2(20,20)
 	sprite.centered = true
@@ -34,3 +35,4 @@ func _ready():
 	button.add_child(sprite)
 	button.add_child(label)
 	
+

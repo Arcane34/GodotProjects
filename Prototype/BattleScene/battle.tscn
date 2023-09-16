@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://l4buaqes7krt"]
+[gd_scene load_steps=8 format=3 uid="uid://l4buaqes7krt"]
 
 [ext_resource type="Script" path="res://BattleScene/battle.gd" id="1_imbe2"]
-[ext_resource type="Script" path="res://BattleScene/PlayerGroup.gd" id="3_qju2o"]
 [ext_resource type="PackedScene" uid="uid://cf1if78l5r1i3" path="res://Characters/F1Lyonar/GeneralAH/general_ah.tscn" id="6_10hjf"]
 [ext_resource type="Script" path="res://BattleScene/Choices.gd" id="6_48v8q"]
 [ext_resource type="PackedScene" uid="uid://chviajs5xsof7" path="res://Characters/F4Abyssian/BlackSouls/black_souls.tscn" id="6_nsoxc"]
 [ext_resource type="PackedScene" uid="uid://detd5rs4dbp6m" path="res://Characters/F4Abyssian/GeneralLB/general_lb_f_4.tscn" id="7_sgma5"]
 [ext_resource type="PackedScene" uid="uid://cjivian2e6mcx" path="res://Characters/F4Abyssian/ShadowWatcher/shadow_watcher.tscn" id="8_ujsqt"]
-[ext_resource type="Script" path="res://BattleScene/EnemyGroup.gd" id="8_vogux"]
+[ext_resource type="PackedScene" uid="uid://bavqqfoyai0qo" path="res://BattleScene/card_library.tscn" id="9_4gjdo"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -45,26 +44,10 @@ position = Vector2(136, 72)
 [node name="BlackSouls" parent="Enemies" instance=ExtResource("6_nsoxc")]
 position = Vector2(64, 72)
 
-[node name="PlayerGroup" type="Node2D" parent="."]
-position = Vector2(-800, 0)
-script = ExtResource("3_qju2o")
-
-[node name="EnemyGroup" type="Node2D" parent="."]
-position = Vector2(-800, 0)
-script = ExtResource("8_vogux")
-
 [node name="Options" type="CanvasLayer" parent="."]
-
-[node name="Hand" type="HBoxContainer" parent="Options"]
-custom_minimum_size = Vector2(400, 40)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -66.0
-offset_right = 400.0
-grow_vertical = 0
-alignment = 1
 script = ExtResource("6_48v8q")
+
+[node name="CardLibrary" parent="Options" instance=ExtResource("9_4gjdo")]
 
 [node name="End Turn" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
@@ -83,5 +66,5 @@ offset_bottom = 25.0
 theme_override_font_sizes/font_size = 7
 text = "Back"
 
-[connection signal="pressed" from="End Turn" to="PlayerGroup" method="_on_end_turn_pressed"]
+[connection signal="pressed" from="End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

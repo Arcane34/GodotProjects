@@ -7,7 +7,8 @@ const ABILITIES_SAVE_FILE = "res://abilities/abilties.dat"
 
 func _ready():
 	load_cards()
-	hand.add_child(create_card(0))
+	
+	#hand.add_child(create_card(0))
 	
 #	var scene = load("res://BattleScene/card.tscn")
 #
@@ -116,13 +117,13 @@ func load_cards():
 	
 	for n in data["names"].size():
 		var card_node = create_card(n)
-		all_cards.add_child(card_node)
+		all_cards.add_child(card_node.button)
 		
 	
 	print(data)
 	print("well")
 
-func create_card(index: int) -> Button:
+func create_card(index: int) -> Ability:
 	var card = Ability.new()
 	card.name = data["names"][index]
 	card.attack_damage = data["attack_damages"][index]
@@ -130,7 +131,7 @@ func create_card(index: int) -> Button:
 	card.status_number = data["status_numbers"][index]
 	card.path = data["paths"][index]
 	card._ready()
-	return card.button
+	return card
 
 
 func _on_back_pressed():

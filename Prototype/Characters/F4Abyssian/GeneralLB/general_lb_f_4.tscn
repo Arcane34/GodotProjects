@@ -15,8 +15,9 @@ sprite_frames = ExtResource("1_1us41")
 offset_top = 8.0
 offset_bottom = 13.0
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_dsu4c")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_dsu4c")]
 offset_left = -32.0
 offset_top = -80.0
 offset_right = 32.0
 offset_bottom = 0.0
+health_component = NodePath("../HealthComponent")

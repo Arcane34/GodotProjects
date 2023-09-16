@@ -22,8 +22,9 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_uhyhj")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_uhyhj")]
 offset_left = -32.0
 offset_top = -80.0
 offset_right = 32.0
 offset_bottom = 0.0
+health_component = NodePath("../HealthComponent")

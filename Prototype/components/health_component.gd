@@ -2,14 +2,17 @@ extends ProgressBar
 class_name HealthComponent
 
 @export var MAX_HEALTH := 400
-var health : float
+
 
 func _ready():
-	health = MAX_HEALTH
+	self.max_value = MAX_HEALTH
+	self.value = MAX_HEALTH
+
 	
 	
-func damage(attack):
-	health -= attack.attack_damage
+func damage(card : Ability):
+	self.value -= card.attack_damage
 	
-	if health <= 0:
+	
+	if value <= 0:
 		get_parent().queue_free()

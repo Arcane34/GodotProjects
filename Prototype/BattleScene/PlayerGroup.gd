@@ -37,6 +37,5 @@ extends Node2D
 #			switch = false
 #	print(characters[0].skills)
 #
-func _on_end_turn_pressed():
-	var switch = true
+
 

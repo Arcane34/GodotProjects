@@ -1,23 +1,23 @@
-extends HBoxContainer
+extends CanvasLayer
 
 @onready var buttons = get_children()
-@onready var playerGroup = $"../../Player"
+@onready var playerGroup = $"../Player"
+@onready var card_lib = $CardLibrary
 var skillList = []
 
 
 func _ready():
+	card_lib.get_child(1).position.y = -300
+	card_lib.get_child(2).position.y = -25
+	card_lib.get_child(3).position.y = -25
+	
 	skillList = playerGroup.get_child(0).skills
+	for i in skillList:
+		var ability = card_lib.create_card(i)
+		card_lib.hand.cards.append(ability)
+		card_lib.hand.add_child(ability.button)
 	
 
-func _process(delta):
-	
-	for i in buttons.size():
-		if i == 0:
-			buttons[i].get_child(0).sprite_frames = load("res://addons/duelyst_animated_sprites/assets/spriteframes/icons/icon_f1_" + skillList[0] + ".tres")
-		if buttons[i].is_hovered():
-			buttons[i].get_children()[0].play("active")
-		else:
-			buttons[i].get_children()[0].play(buttons[i].get_children()[0].sprite_frames.get_animation_names()[1])
 
 
 

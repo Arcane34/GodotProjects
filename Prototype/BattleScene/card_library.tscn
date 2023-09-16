@@ -1,28 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bavqqfoyai0qo"]
+[gd_scene load_steps=3 format=3 uid="uid://bavqqfoyai0qo"]
 
 [ext_resource type="Script" path="res://BattleScene/card_library.gd" id="1_bwelr"]
+[ext_resource type="Script" path="res://BattleScene/Hand.gd" id="2_7ustr"]
 
 [node name="CardLibrary" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -400.0
+offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bwelr")
 
 [node name="Hand" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 40.0
-offset_right = 400.0
-offset_bottom = 100.0
+offset_left = 6.0
+offset_top = 150.0
+offset_right = 303.0
+offset_bottom = 210.0
 alignment = 1
+script = ExtResource("2_7ustr")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_top = 115.0
+offset_top = 40.0
 offset_right = 400.0
-offset_bottom = 225.0
+offset_bottom = 150.0
 
 [node name="AllCards" type="GridContainer" parent="ScrollContainer"]
 layout_mode = 2
