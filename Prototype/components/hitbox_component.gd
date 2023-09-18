@@ -4,7 +4,8 @@ extends Button
 
 
 func damage(card : Ability ):
-	if health_component:
-		health_component.damage(card)
+	if card != null:
+		if health_component:
+			health_component.damage(card)
 
 

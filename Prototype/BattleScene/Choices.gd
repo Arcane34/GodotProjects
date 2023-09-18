@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var playerGroup = $"../Player"
 @onready var card_lib = $CardLibrary
 var skillList = []
+var index = 0
 
 
 func _ready():
@@ -12,13 +13,19 @@ func _ready():
 	card_lib.get_child(3).position.y = -25
 	
 	skillList = playerGroup.get_child(0).skills
-	for i in skillList:
-		var ability = card_lib.create_card(i)
-		card_lib.hand.cards.append(ability)
-		card_lib.hand.add_child(ability.button)
+	skillList.shuffle()
+	draw(5)
 	
 
-
+func draw(n : int):
+	for i in n:
+		var ability = card_lib.create_card(skillList[index])
+		card_lib.hand.cards.append(ability)
+		card_lib.hand.add_child(ability.button)
+		index += 1
+		if index > skillList.size() -1:
+			index = 0
+			skillList.shuffle()
 
 
 	
