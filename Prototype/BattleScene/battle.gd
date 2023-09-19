@@ -5,6 +5,8 @@ extends Control
 @onready var hand = $Options/CardLibrary/Hand
 @onready var player_turn = true #true = player's turn, else enemy turn
 @onready var card_options = $Options
+@onready var flashcard = $"Flashcard Test"
+
 
 func _ready():
 	for i in player.get_children():
@@ -15,17 +17,25 @@ func _ready():
 		i.get_node("HitboxComponent").connect("pressed", hit.bind( i))
 
 func hit(character):
-	character.get_node("HitboxComponent").damage(hand.focus)
-	hand.remove_card()
+	flashcard.visible = true
+	for i in hand.get_children():
+		i.disabled = true
+	
+	flashcard.character = character
+	
+	
 	
 	
 
 func _process(delta):
+	
 		
+	
+	
 	for i in enemies.get_children():
 		#enemies.get_child(i).position = Vector2(i*64, 0)
 		#enemies.get_child(i).play("breathing")
-		
+		print(hand.focus)
 		if hand.focus == null:
 			i.modulate.a = 1
 		else:
@@ -33,7 +43,20 @@ func _process(delta):
 				i.modulate.a = 1
 			else:
 				i.modulate.a = 0.7
-		
+				
+				
+	if flashcard.visible:
+		if flashcard.answer != "":
+			if flashcard.answer == "hard":
+				_on_end_turn_pressed()
+			else:
+				flashcard.character.get_node("HitboxComponent").damage(hand.focus, flashcard.answer)
+			hand.remove_card()
+			flashcard.answered()
+			for i in hand.get_children():
+				i.disabled = false
+
+
 
 
 func _on_main_menu_pressed():

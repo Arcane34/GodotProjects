@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://coqwnrticesi4"]
+
+[ext_resource type="Script" path="res://BattleScene/Flashcard Test.gd" id="1_g0041"]
+
+[node name="Flashcard Test" type="CanvasLayer"]
+script = ExtResource("1_g0041")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 35.0
+offset_top = 5.0
+offset_right = 365.0
+offset_bottom = 155.0
+
+[node name="Card" type="RichTextLabel" parent="."]
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 150.0
+
+[node name="Flip" type="Button" parent="."]
+offset_left = 370.0
+offset_top = 70.0
+offset_right = 395.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 7
+text = "Flip"
+
+[node name="Answers" type="HBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 165.0
+offset_right = 380.0
+offset_bottom = 205.0
+alignment = 1
+
+[node name="Hard" type="Button" parent="Answers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard"
+
+[node name="Ok" type="Button" parent="Answers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ok"
+
+[node name="Good" type="Button" parent="Answers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Good"
+
+[node name="Easy" type="Button" parent="Answers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Easy"
+
+[connection signal="pressed" from="Answers/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Answers/Ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="Answers/Good" to="." method="_on_good_pressed"]
+[connection signal="pressed" from="Answers/Easy" to="." method="_on_easy_pressed"]

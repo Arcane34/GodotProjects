@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 @onready var buttons = get_children()
 @onready var playerGroup = $"../Player"
