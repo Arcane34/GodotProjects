@@ -5,6 +5,13 @@
 [node name="Flashcard Test" type="CanvasLayer"]
 script = ExtResource("1_g0041")
 
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 405.0
+offset_bottom = 228.0
+
 [node name="Panel" type="Panel" parent="."]
 offset_left = 35.0
 offset_top = 5.0
@@ -52,6 +59,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Easy"
 
+[connection signal="pressed" from="Flip" to="." method="_on_flip_pressed"]
 [connection signal="pressed" from="Answers/Hard" to="." method="_on_hard_pressed"]
 [connection signal="pressed" from="Answers/Ok" to="." method="_on_ok_pressed"]
 [connection signal="pressed" from="Answers/Good" to="." method="_on_good_pressed"]

@@ -17,12 +17,13 @@ func _ready():
 		order.append(i)
 	order.shuffle()
 	choose()
-	card.text = card_front
+	
 
 func choose():
 	var cardNum = order[0]
 	card_front = g_data[0][cardNum]
 	card_back = g_data[1][cardNum]
+	card.text = card_front
 	answer = ""
 
 	
@@ -66,5 +67,5 @@ func answered():
 	if answer == "hard":
 		order.insert(min(2,order.size()-1), order.pop_front())
 	
-	answer = ""
+	choose()
 	self.visible = false

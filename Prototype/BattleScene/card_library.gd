@@ -9,7 +9,7 @@ func _ready():
 	load_cards()
 	
 	#hand.add_child(create_card(0))
-	
+
 #	var scene = load("res://BattleScene/card.tscn")
 #
 #	var dir = DirAccess.open("res://addons/duelyst_animated_sprites/assets/spriteframes/icons/")
@@ -32,7 +32,7 @@ func _ready():
 #		file_name = dir.get_next()
 #		counter += 1
 #	print(counter)
-#
+
 
 func _process(_delta):
 	var h_cards = hand.get_children()
@@ -68,7 +68,7 @@ func save_cards():
 	
 	var card = Ability.new()
 	card.name = "Attack"
-	card.attack_damage = 5.0
+	card.attack_damage = 20.0
 	card.path = "res://addons/duelyst_animated_sprites/assets/spriteframes/icons/artifact_f2_crescentspear.tres"
 	card._ready()
 	temp_cards.append(card)

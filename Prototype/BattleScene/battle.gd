@@ -21,6 +21,9 @@ func hit(character):
 	for i in hand.get_children():
 		i.disabled = true
 	
+	for j in 5:
+		get_child(j).modulate.a = 0.5
+	
 	flashcard.character = character
 	
 	
@@ -35,7 +38,6 @@ func _process(delta):
 	for i in enemies.get_children():
 		#enemies.get_child(i).position = Vector2(i*64, 0)
 		#enemies.get_child(i).play("breathing")
-		print(hand.focus)
 		if hand.focus == null:
 			i.modulate.a = 1
 		else:
@@ -55,6 +57,8 @@ func _process(delta):
 			flashcard.answered()
 			for i in hand.get_children():
 				i.disabled = false
+			for j in 5:
+				get_child(j).modulate.a = 1
 
 
 
