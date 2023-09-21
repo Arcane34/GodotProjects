@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://615qxm1bnxoa"]
+
+[ext_resource type="Script" path="res://components/enemy_component.gd" id="1_wm63t"]
+[ext_resource type="Texture2D" uid="uid://dwcd8h6dsre3y" path="res://icon.svg" id="2_a6s7q"]
+
+[node name="EnemyComponent" type="Node2D"]
+script = ExtResource("1_wm63t")
+
+[node name="Intention" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_a6s7q")
+
+[node name="Value" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 8.0
+offset_bottom = -16.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1

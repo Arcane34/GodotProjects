@@ -7,3 +7,5 @@
 sprite_frames = ExtResource("1_iaf6n")
 animation = &"breathing"
 script = ExtResource("2_cin2l")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

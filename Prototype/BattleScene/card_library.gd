@@ -5,39 +5,17 @@ const ABILITIES_SAVE_FILE = "res://abilities/abilties.dat"
 @onready var all_cards = $ScrollContainer/AllCards
 @onready var data = {}
 
+
 func _ready():
 	load_cards()
-	
-	#hand.add_child(create_card(0))
 
-#	var scene = load("res://BattleScene/card.tscn")
-#
-#	var dir = DirAccess.open("res://addons/duelyst_animated_sprites/assets/spriteframes/icons/")
-#	dir.list_dir_begin()
-#	var file_name = dir.get_next()
-#	var counter = 0
-#
-#	while file_name != "":
-#		var instance = scene.instantiate()
-#		var resource = load("res://addons/duelyst_animated_sprites/assets/spriteframes/icons/" + file_name) 
-#		instance.get_node("AnimatedSprite2D").sprite_frames = resource
-#
-#		var fileSplit = file_name.split("_")
-#		var abName = fileSplit[fileSplit.size()-1].split(".")[0]
-#
-#
-#		instance.get_node("Label").text = abName
-#		all_cards.add_child(instance)
-#
-#		file_name = dir.get_next()
-#		counter += 1
-#	print(counter)
+
 
 
 func _process(_delta):
 	var h_cards = hand.get_children()
 	
-	
+	# card sprite animation for hand and card library
 	for i in h_cards.size():
 			if h_cards[i].is_hovered():
 				h_cards[i].get_children()[0].play("active")
@@ -61,7 +39,7 @@ func _process(_delta):
 
 
 
-
+# card creation and saving into file, allowing me to update the current card library after changing the code
 func save_cards():
 	var temp_cards = []
 	
@@ -105,7 +83,7 @@ func save_cards():
 
 	
 
-
+# loading cards from save file as children of the all cards node or re-generating cards if there is no save file
 func load_cards():
 	if not FileAccess.file_exists(ABILITIES_SAVE_FILE):
 		print("running save ")
@@ -123,6 +101,8 @@ func load_cards():
 	print(data)
 	print("well")
 
+
+# the function that will generate a card object when given the index of that card
 func create_card(index: int) -> Ability:
 	var card = Ability.new()
 	card.name = data["names"][index]
@@ -137,7 +117,7 @@ func create_card(index: int) -> Ability:
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://MainMenu/mainMenu.tscn")
 
-
+# save all generated cards into a save file and reload the gui so new cards can be seen
 func _on_save_pressed():
 	save_cards()
 	print(all_cards.get_child_count())
