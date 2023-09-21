@@ -19,7 +19,6 @@ grow_vertical = 2
 script = ExtResource("1_imbe2")
 
 [node name="Player" type="HBoxContainer" parent="."]
-clip_contents = true
 layout_mode = 1
 offset_left = 32.0
 offset_top = 48.0

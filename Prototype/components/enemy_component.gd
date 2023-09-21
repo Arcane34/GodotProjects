@@ -1,12 +1,13 @@
 extends Node2D
 
-@export var actions = ["A:16"]
+@export var actions = ["A:16","A:8","D:20"]
 @onready var intention = $Intention
 @onready var value = $Value
 
 # loads the intention of enemies and displays it as a change in colour of the icon currently
 func load_action():
 	if actions.size() > 0:
+		print(actions)
 		actions.append(actions.pop_front())
 		
 		var current_action = actions[0].split(":")

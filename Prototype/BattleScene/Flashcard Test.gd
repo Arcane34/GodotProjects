@@ -67,4 +67,3 @@ func answered():
 	
 	#once answered choose a new flashcard and then make the flashcard screen invisible
 	choose()
-	self.visible = false

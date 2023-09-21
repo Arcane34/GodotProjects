@@ -16,7 +16,9 @@ func _process(delta):
 
 
 func _on_animation_looped():
-	if state == "hit":
-		state = "idle"
 	if state == "death":
 		get_parent().queue_free()
+	elif state != "idle":
+		state = "idle"
+	
+	
