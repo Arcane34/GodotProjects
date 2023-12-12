@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc07l1e8bq6l"]
+
+[ext_resource type="Texture2D" uid="uid://c1xek5guoit4y" path="res://Resources/loot.png" id="1_7yw2f"]
+
+[node name="Loot" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0.270588, 0.270588, 0.270588, 1)
+
+[node name="Sprite4Loot" type="Sprite2D" parent="."]
+texture = ExtResource("1_7yw2f")
+centered = false
+vframes = 2

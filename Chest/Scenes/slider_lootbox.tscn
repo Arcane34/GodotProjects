@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bawdati5eliew"]
+
+[ext_resource type="Script" path="res://Scripts/slider_lootbox.gd" id="1_lu14y"]
+
+[node name="SliderLootbox" type="Node2D"]
+script = ExtResource("1_lu14y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

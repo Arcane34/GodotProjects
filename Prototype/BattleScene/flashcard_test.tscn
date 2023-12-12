@@ -33,6 +33,7 @@ theme_override_font_sizes/font_size = 7
 text = "Flip"
 
 [node name="Answers" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 20.0
 offset_top = 165.0
 offset_right = 380.0

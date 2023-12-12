@@ -2,7 +2,8 @@ extends Node2D
 
 const SAVE_FILE = "user://save_file.dat"
 var g_data = []
-@onready var cards = $ScrollContainer/CardContainer
+@onready var cards = $Flashcards/CardContainer
+@onready var title = $Title
 
 #load flashcards
 func _ready():
@@ -25,7 +26,7 @@ func load_data():
 	g_data = file.get_var()
 	if not g_data.is_empty():
 		var scene = load("res://FlashcardEditor/flashcard.tscn")
-	
+		
 		for i in len(g_data[0]):
 			var instance = scene.instantiate()
 			instance.get_node("HBoxContainer/Front").text = g_data[0][i]
@@ -57,3 +58,10 @@ func _on_save_pressed():
 # go to main menu
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_file("res://MainMenu/mainMenu.tscn")
+
+
+func _on_back_pressed():
+	if title.text == "Decks":
+		get_tree().change_scene_to_file("res://MainMenu/mainMenu.tscn")
+	else:
+		title.text = "Decks"

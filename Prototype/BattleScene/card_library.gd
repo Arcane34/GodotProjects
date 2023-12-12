@@ -11,7 +11,6 @@ func _ready():
 
 
 
-
 func _process(_delta):
 	var h_cards = hand.get_children()
 	

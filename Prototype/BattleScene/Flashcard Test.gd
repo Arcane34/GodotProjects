@@ -8,6 +8,7 @@ var card_back = ""
 var answer = ""
 var character
 @onready var card = $Card
+@onready var answers = $Answers
 
 #load all the flashcards and shuffle them into an order
 func _ready():
@@ -36,6 +37,7 @@ func choose():
 func _on_flip_pressed():
 	if card.text == card_front:
 		card.text = card_back
+		answers.visible = true 
 	else:
 		card.text = card_front
 
@@ -65,5 +67,6 @@ func answered():
 	if answer == "hard":
 		order.insert(min(2,order.size()-1), order.pop_front())
 	
+	answers.visible = false
 	#once answered choose a new flashcard and then make the flashcard screen invisible
 	choose()

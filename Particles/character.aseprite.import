@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://d1rtf374fqr"
+path="res://.godot/imported/character.aseprite-0d13cfadf00857ebd62f08f19a83839e.scn"
+
+[deps]
+
+source_file="res://character.aseprite"
+dest_files=["res://.godot/imported/character.aseprite-0d13cfadf00857ebd62f08f19a83839e.scn"]
+
+[params]
+
+spritesheet/layout=1
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

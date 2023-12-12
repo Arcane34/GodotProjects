@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite SpriteFrames Import"
+type="SpriteFrames"
+uid="uid://d3kndb23o4vqx"
+path="res://.godot/imported/loot.aseprite-7f905a881cbab44eacbf0fb0ac4e8689.res"
+
+[deps]
+
+source_file="res://Resources/loot.aseprite"
+dest_files=["res://.godot/imported/loot.aseprite-7f905a881cbab44eacbf0fb0ac4e8689.res"]
+
+[params]
+
+spritesheet/layout=1
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

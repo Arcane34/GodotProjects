@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cboalqly8s1v0"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_f5gyo"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_f5gyo")
+
+[node name="Output" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 20.0
+offset_right = 215.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 10
+text = "You got:
+Rain World"
+horizontal_alignment = 1
+
+[node name="Spin" type="Button" parent="."]
+offset_left = 135.0
+offset_top = 138.0
+offset_right = 180.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 10
+text = "Spin"
+
+[connection signal="pressed" from="Spin" to="." method="_on_spin_pressed"]
