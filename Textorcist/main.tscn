@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctipiaq6u7fax"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_adq0b"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_adq0b")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 282.0
+offset_top = 122.0
+offset_right = 977.0
+offset_bottom = 357.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=blue]blue[/color] and [color=red]red[/color]"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 104.0
+offset_bottom = 61.0
+text = "Mistakes = 0"

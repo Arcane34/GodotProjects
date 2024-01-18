@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://m0j6y2iydnt8"]
+
+[ext_resource type="Script" path="res://Scripts/Battle.gd" id="1_qw5tu"]
+[ext_resource type="Texture2D" uid="uid://bokhepteg8sjr" path="res://icon.svg" id="2_b23x8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5nkl"]
+radius = 21.095
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_qw5tu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(300, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.332031, 0.332031)
+texture = ExtResource("2_b23x8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_k5nkl")
