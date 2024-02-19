@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://br5qwnt5kop07"]
+[gd_scene load_steps=7 format=3 uid="uid://br5qwnt5kop07"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_i1vn3"]
-[ext_resource type="Texture2D" uid="uid://bg7l7lm14xa3v" path="res://player/icon.svg" id="2_k0kw0"]
 
 [sub_resource type="Gradient" id="Gradient_4ggmc"]
 offsets = PackedFloat32Array(0.163498, 0.338403, 0.764259, 1)
@@ -21,107 +20,24 @@ curve = SubResource("Curve_3ttaa")
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 26.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 80.0
 initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_awyi5")
 color_ramp = SubResource("GradientTexture1D_nywse")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h4pwb"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 26.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_awyi5")
-color_ramp = SubResource("GradientTexture1D_nywse")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g7yjb"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 26.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_awyi5")
-color_ramp = SubResource("GradientTexture1D_nywse")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_72rg3"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 26.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 5.0
-scale_curve = SubResource("CurveTexture_awyi5")
-color_ramp = SubResource("GradientTexture1D_nywse")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cako0"]
-size = Vector2(62, 62)
 
 [node name="Player" type="RigidBody2D"]
 mass = 5.0
-gravity_scale = 0.0
 script = ExtResource("1_i1vn3")
 
 [node name="propulsion" type="GPUParticles2D" parent="."]
-position = Vector2(0, 33)
+position = Vector2(0, 10)
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_bt3n8")
 
-[node name="propulsion2" type="GPUParticles2D" parent="."]
-position = Vector2(0, -33)
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_h4pwb")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -20, -15, 15, 0, 10, 15, 15)
 
-[node name="leftThrust" type="GPUParticles2D" parent="."]
-position = Vector2(55, 0)
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_g7yjb")
-
-[node name="rightThrust" type="GPUParticles2D" parent="."]
-position = Vector2(-55, 0)
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_72rg3")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(42, 1)
-scale = Vector2(0.1875, 0.0859375)
-texture = ExtResource("2_k0kw0")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(-41.5, 0.25)
-scale = Vector2(0.1875, 0.0859375)
-texture = ExtResource("2_k0kw0")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(55, 1.00001)
-scale = Vector2(0.0859376, 0.144531)
-texture = ExtResource("2_k0kw0")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(-54.5, 0.25)
-scale = Vector2(0.0859376, 0.144531)
-texture = ExtResource("2_k0kw0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(2, 2, 1, 1)
-self_modulate = Color(1, 0, 0.898039, 1)
-scale = Vector2(0.52, 0.52)
-texture = ExtResource("2_k0kw0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cako0")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -15, -13, 13, 0, 8, 13, 13)
