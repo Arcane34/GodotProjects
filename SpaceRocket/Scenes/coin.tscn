@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://btyvjohourgh4"]
+[gd_scene load_steps=6 format=3 uid="uid://btyvjohourgh4"]
 
-[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_jvpn2"]
 [ext_resource type="Texture2D" uid="uid://d1srad4yu1snr" path="res://Assets/heart .png" id="2_qi6rc"]
+[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="2_xc4x2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jtgl"]
+shader = ExtResource("2_xc4x2")
+shader_parameter/bloomRadius = 4.0
+shader_parameter/bloomThreshold = 0.5
+shader_parameter/bloomIntensity = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m27ow"]
 size = Vector2(60, 56)
@@ -9,9 +15,9 @@ size = Vector2(60, 56)
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6va3"]
 
 [node name="Coin" type="StaticBody2D"]
-script = ExtResource("1_jvpn2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4jtgl")
 scale = Vector2(0.205, 0.205)
 texture = ExtResource("2_qi6rc")
 offset = Vector2(25, -90)

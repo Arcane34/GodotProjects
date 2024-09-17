@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://br5qwnt5kop07"]
+[gd_scene load_steps=9 format=3 uid="uid://br5qwnt5kop07"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_i1vn3"]
+[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="2_8rumu"]
 
 [sub_resource type="Gradient" id="Gradient_4ggmc"]
 offsets = PackedFloat32Array(0.163498, 0.338403, 0.764259, 1)
@@ -27,6 +28,12 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_awyi5")
 color_ramp = SubResource("GradientTexture1D_nywse")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7e2md"]
+shader = ExtResource("2_8rumu")
+shader_parameter/bloomRadius = 1.0
+shader_parameter/bloomThreshold = 0.5
+shader_parameter/bloomIntensity = 1.0
+
 [node name="Player" type="RigidBody2D"]
 mass = 5.0
 script = ExtResource("1_i1vn3")
@@ -37,6 +44,7 @@ amount = 40
 process_material = SubResource("ParticleProcessMaterial_bt3n8")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_7e2md")
 polygon = PackedVector2Array(0, -20, -15, 15, 0, 10, 15, 15)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

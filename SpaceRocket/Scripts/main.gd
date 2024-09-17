@@ -9,6 +9,15 @@ var bubbleCol = Color(0.0,0.0,1.0,0.2)
 @onready var coinDeath = $Coin/CoinDeath
 @onready var scoreLab = $CanvasLayer/Label
 
+
+#@onready var bubble = $SubViewportContainer/SubViewport/Bubble
+#@onready var player = $SubViewportContainer/SubViewport/Player
+#@onready var nonGravArea = $SubViewportContainer/SubViewport/Bubble/NonGravArea/NonGravArea
+#@onready var camera = $Camera2D
+#@onready var coins = $SubViewportContainer/SubViewport/Coin
+#@onready var coinDeath = $SubViewportContainer/SubViewport/Coin/CoinDeath
+#@onready var scoreLab = $SubViewportContainer/SubViewport/CanvasLayer/Label
+
 var outside = true
 var coinSpawnRad = 400.0
 var coinScene = load("res://Scenes/coin.tscn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs1375hvmglnm"]
+[gd_scene load_steps=11 format=3 uid="uid://cs1375hvmglnm"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_wi58x"]
 [ext_resource type="PackedScene" uid="uid://br5qwnt5kop07" path="res://player/player.tscn" id="2_rjtjm"]
+[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="3_ja8le"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de1bv"]
 size = Vector2(4242, 3424)
@@ -30,6 +31,12 @@ scale_min = 2.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_5g3oh")
 color = Color(0.92549, 0.992157, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwbcy"]
+shader = ExtResource("3_ja8le")
+shader_parameter/bloomRadius = 4.0
+shader_parameter/bloomThreshold = 0.5
+shader_parameter/bloomIntensity = 4.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_wi58x")
@@ -108,6 +115,99 @@ offset_right = 307.0
 offset_bottom = 133.0
 theme_override_font_sizes/font_size = 100
 text = "Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vwbcy")
+offset_left = -70.0
+offset_top = 2.0
+offset_right = 2330.0
+offset_bottom = 1402.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2400, 1400)
+render_target_update_mode = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="SubViewportContainer/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/ParallaxBackground"]
+offset_left = -89.0
+offset_top = -45.0
+offset_right = 2371.0
+offset_bottom = 1361.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bubble" type="StaticBody2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(1164, 642)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="SubViewportContainer/SubViewport/Bubble"]
+scale = Vector2(2.105, 2.105)
+color = Color(0, 0, 1, 0.521569)
+polygon = PackedVector2Array(-72, -207, -127, -182, -180, -122, -207, -61, -222, 11, -203, 75, -152, 157, -95, 200, -30, 219, 30, 221, 98, 195, 151, 157, 197, 98, 225, 13, 206, -67, 168, -142, 104, -194, 34, -218, -32, -220)
+
+[node name="GravArea" type="Area2D" parent="SubViewportContainer/SubViewport/Bubble"]
+visible = false
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+linear_damp_space_override = 1
+linear_damp = 0.2
+angular_damp_space_override = 1
+
+[node name="GravArea" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Bubble/GravArea"]
+position = Vector2(7, 101)
+shape = SubResource("RectangleShape2D_de1bv")
+
+[node name="NonGravArea" type="Area2D" parent="SubViewportContainer/SubViewport/Bubble"]
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+linear_damp_space_override = 3
+linear_damp = 0.2
+angular_damp_space_override = 1
+
+[node name="NonGravArea" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Bubble/NonGravArea"]
+shape = SubResource("CircleShape2D_shdlo")
+
+[node name="NotNeeded" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Bubble"]
+position = Vector2(-506, 818)
+shape = SubResource("CircleShape2D_tldqo")
+disabled = true
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_rjtjm")]
+position = Vector2(1049, 536)
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(1049, 536)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Coin" type="Node2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="CoinDeath" type="GPUParticles2D" parent="SubViewportContainer/SubViewport/Coin"]
+emitting = false
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_4yqi1")
+one_shot = true
+explosiveness = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer"]
+offset_right = 307.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 100
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Bubble/NonGravArea" to="." method="_on_non_grav_area_body_entered"]
 [connection signal="body_exited" from="Bubble/NonGravArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/Bubble/NonGravArea" to="." method="_on_non_grav_area_body_entered"]
+[connection signal="body_exited" from="SubViewportContainer/SubViewport/Bubble/NonGravArea" to="." method="_on_area_2d_body_exited"]

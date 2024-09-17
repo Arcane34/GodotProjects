@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://l4nc5phrkqh"]
+
+[ext_resource type="Script" path="res://audio_visualizer.gd" id="1_tsetg"]
+[ext_resource type="PackedScene" uid="uid://dfqojjtb2p4ln" path="res://visuals.tscn" id="2_be4p1"]
+[ext_resource type="AudioStream" uid="uid://dthuk1t4vilxq" path="res://assets/battleThemeA.mp3" id="2_yfu62"]
+[ext_resource type="Shader" path="res://test.gdshader" id="4_c2exv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxx6b"]
+shader = ExtResource("4_c2exv")
+shader_parameter/threshold = 0.5
+
+[node name="AudioVisualizer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tsetg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1178.0
+offset_bottom = 677.0
+color = Color(0, 0, 0, 1)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yfu62")
+autoplay = true
+bus = &"Music"
+
+[node name="Visuals" parent="." instance=ExtResource("2_be4p1")]
+material = SubResource("ShaderMaterial_yxx6b")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)

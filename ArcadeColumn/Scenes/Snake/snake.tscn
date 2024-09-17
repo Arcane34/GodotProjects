@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctd0owdt1qudu"]
+
+[ext_resource type="Script" path="res://Scripts/Snake/snake.gd" id="1_58jn1"]
+[ext_resource type="PackedScene" uid="uid://dljji767xybrh" path="res://Scenes/Snake/player.tscn" id="2_o8xqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wi8i"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61mce"]
+size = Vector2(20, 180)
+
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_58jn1")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, -10)
+shape = SubResource("RectangleShape2D_2wi8i")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_2wi8i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-10, 90)
+shape = SubResource("RectangleShape2D_61mce")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(330, 90)
+shape = SubResource("RectangleShape2D_61mce")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Apples" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_o8xqi")]
+position = Vector2(159, 102)
+
+[node name="Segments" type="Node2D" parent="."]

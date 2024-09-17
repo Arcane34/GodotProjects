@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmjc4nmkw4eg4"]
+
+[ext_resource type="Script" path="res://distance_field_generator.gd" id="1_2ifpr"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2ifpr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

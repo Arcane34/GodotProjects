@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs5w3m7ktj4ff"]
+
+[ext_resource type="Script" path="res://Scripts/Pong/pong.gd" id="1_8bf7n"]
+[ext_resource type="Texture2D" uid="uid://baryh0vyvehfi" path="res://icon.svg" id="2_uyf3t"]
+[ext_resource type="FontFile" uid="uid://cya8m7mgddxkj" path="res://quinque-five-font/Quinquefive-ALoRM.ttf" id="2_wvasp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u1ds5"]
+friction = 0.1
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q318"]
+size = Vector2(8, 44)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rv48b"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmh01"]
+size = Vector2(340, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3byfc"]
+size = Vector2(340, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p1u7p"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgkhc"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_81tdq"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl45g"]
+size = Vector2(8, 44)
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_8bf7n")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = -15.0
+offset_top = -8.0
+offset_right = 344.0
+offset_bottom = 186.0
+color = Color(0, 0, 0, 1)
+
+[node name="PlayerScore" type="Label" parent="Background"]
+texture_filter = 1
+offset_left = 104.0
+offset_right = 144.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_wvasp")
+text = "0"
+horizontal_alignment = 2
+
+[node name="OpponentScore" type="Label" parent="Background"]
+texture_filter = 1
+offset_left = 180.0
+offset_right = 220.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_wvasp")
+text = "0"
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(5, 23)
+physics_material_override = SubResource("PhysicsMaterial_u1ds5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+self_modulate = Color(10, 10, 10, 1)
+scale = Vector2(0.068, 0.35)
+texture = ExtResource("2_uyf3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_2q318")
+
+[node name="World" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_rv48b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World"]
+position = Vector2(160, 190)
+shape = SubResource("RectangleShape2D_fmh01")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World"]
+position = Vector2(160, -10)
+shape = SubResource("RectangleShape2D_3byfc")
+
+[node name="OutOfBounds" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OutOfBounds"]
+shape = SubResource("WorldBoundaryShape2D_p1u7p")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OutOfBounds"]
+position = Vector2(320, 0)
+shape = SubResource("WorldBoundaryShape2D_bgkhc")
+
+[node name="Opponent" type="StaticBody2D" parent="."]
+modulate = Color(10, 10, 10, 1)
+position = Vector2(315, 23)
+physics_material_override = SubResource("PhysicsMaterial_81tdq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Opponent"]
+scale = Vector2(0.068, 0.35)
+texture = ExtResource("2_uyf3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent"]
+shape = SubResource("RectangleShape2D_jl45g")

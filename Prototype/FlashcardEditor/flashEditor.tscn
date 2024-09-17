@@ -44,22 +44,11 @@ offset_bottom = 25.0
 theme_override_font_sizes/font_size = 7
 text = "Back"
 
-[node name="FlashcardDecks" type="ScrollContainer" parent="."]
-visible = false
-custom_minimum_size = Vector2(360, 180)
-offset_left = 20.0
-offset_top = 35.0
-offset_right = 380.0
-offset_bottom = 215.0
-
-[node name="Decks" type="GridContainer" parent="FlashcardDecks"]
-layout_mode = 2
-
 [node name="Title" type="Label" parent="."]
 offset_left = 128.0
 offset_right = 256.0
 offset_bottom = 23.0
-text = "Decks"
+text = "Flashcards"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://k1ivgilomdfy"]
+
+[ext_resource type="Script" path="res://Scripts/Pong/Ball.gd" id="1_gnj3r"]
+[ext_resource type="Texture2D" uid="uid://baryh0vyvehfi" path="res://icon.svg" id="2_dc3f7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gn0ac"]
+radius = 6.08276
+
+[node name="Ball" type="RigidBody2D"]
+modulate = Color(5, 5, 5, 1)
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+max_contacts_reported = 2
+contact_monitor = true
+linear_velocity = Vector2(-100, -40)
+linear_damp_mode = 1
+script = ExtResource("1_gnj3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0839844, 0.0839844)
+texture = ExtResource("2_dc3f7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gn0ac")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
