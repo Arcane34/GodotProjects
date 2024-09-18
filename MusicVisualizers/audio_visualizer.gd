@@ -16,7 +16,7 @@ const MIN_DB = 60
 
 
 
-
+# Get the nodes that represent their corresponding ranges in the audio spectrum
 func _ready():
 	childrenArray.reverse()
 	var temp = []
@@ -24,9 +24,11 @@ func _ready():
 		temp.append(i.get_child(0))
 	childrenArray = temp
 	
-	
+
+# get the magnitude of the music in specific ranges and set the alpha (transparency) value to this value 
 func _process(delta):
 	var prev_hz = 0
+	
 	for i in range(1,VU_COUNT+1):
 		var hz = i * FREQ_MAX/ VU_COUNT
 		var f = spectrum.get_magnitude_for_frequency_range(prev_hz,hz)
